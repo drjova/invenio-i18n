@@ -62,6 +62,7 @@ from werkzeug.wsgi import DispatcherMiddleware
 from invenio_circulation import InvenioCirculation, InvenioCirculationREST
 from invenio_circulation.views.ui import blueprint as circulation_blueprint
 
+from invenio_i18n import InvenioI18N
 
 # Create Flask application
 def init_app(app):
@@ -87,6 +88,7 @@ def init_app(app):
             '/hooks/receivers/circulation_cancel/events/'),
     )
 
+    InvenioI18N(app)
     Babel(app)
     Menu(app)
     Breadcrumbs(app)
